@@ -1,0 +1,38 @@
+{
+  "name": "@underslight/auth",
+  "version": "0.1.0",
+  "description": "The JS auth SDK for Underslight",
+  "main": "dist/index.js",
+  "module": "dist/index.m.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "microbundle --tsconfig tsconfig.json --no-sourcemap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underslight/auth-sdk.git"
+  },
+  "author": "Federico Fusco",
+  "bugs": {
+    "url": "https://github.com/underslight/auth-sdk/issues"
+  },
+  "homepage": "https://github.com/underslight/auth-sdk#readme",
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.m.js",
+    "default": "./dist/index.modern.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "typescript": "^5.4.2"
+  }
+}
