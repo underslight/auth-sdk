@@ -1,6 +1,6 @@
 {
   "name": "@underslight/auth",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The JS auth SDK for Underslight",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
