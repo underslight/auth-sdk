@@ -8,6 +8,8 @@ export declare class EmailPasswordMethod implements AuthMethod {
     private password;
     constructor(email: string, password: string, mfa_code?: MfaCode);
     setMfaCode(mfa_code?: MfaCode): void;
-    authenticate(client: ApiClient): Promise<User>;
-    register(client: ApiClient): Promise<User>;
+    authenticate(client: ApiClient, successRedirect?: string): Promise<User>;
+    register(client: ApiClient, successRedirect?: string): Promise<User>;
+    link(client: ApiClient): Promise<void>;
+    unlink(client: ApiClient): Promise<void>;
 }

@@ -10,6 +10,7 @@ export declare class UnderslightAuth {
     private config;
     readonly client: ApiClient;
     constructor(config: Config);
+    currentUser(strict?: boolean): Promise<User | null>;
     authenticate(credential: AuthMethod): Promise<User>;
     register(credential: AuthMethod): Promise<User>;
 }

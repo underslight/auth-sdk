@@ -6,8 +6,10 @@ export declare enum AuthMethodType {
 export interface AuthMethod {
     readonly type: AuthMethodType;
     mfa_code?: MfaCode;
-    authenticate: (client: ApiClient) => Promise<User>;
-    register: (client: ApiClient) => Promise<User>;
+    authenticate: (client: ApiClient, successRedirect?: string) => Promise<User>;
+    register: (client: ApiClient, successRedirect?: string) => Promise<User>;
+    link: (client: ApiClient) => Promise<void>;
+    unlink: (client: ApiClient) => Promise<void>;
 }
 export declare enum MfaMethodType {
     Totp = "Totp"

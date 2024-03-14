@@ -1,13 +1,15 @@
 import { UnderslightAuth } from "./auth";
-import { MfaMethod } from "./methods";
+import { AuthMethod, MfaMethod } from "./methods";
 export interface UserAttributes {
-    [prop: string]: any;
+    custom: {
+        [prop: string]: any;
+    };
 }
 export interface UserMetadata {
-    disabled: string[] | null;
-    verified: boolean;
-    last_access: number;
-    last_password_reset: number;
+    readonly disabled: string[] | null;
+    readonly verified: boolean;
+    readonly last_access: number;
+    readonly last_password_reset: number;
 }
 export interface UserData {
     readonly id: string;
@@ -19,6 +21,10 @@ export declare class User {
     attributes: UserAttributes;
     readonly metadata: UserMetadata;
     constructor({ id, attributes, metadata }: UserData);
+    linkAuthMethod(auth: UnderslightAuth, auth_method: AuthMethod): Promise<User>;
+    unlinkAuthMethod(auth: UnderslightAuth, auth_method: AuthMethod): Promise<User>;
     linkMfaMethod(auth: UnderslightAuth, mfa_method: MfaMethod): Promise<User>;
     unlinkMfaMethod(auth: UnderslightAuth, mfa_method: MfaMethod): Promise<User>;
+    delete(auth: UnderslightAuth): Promise<void>;
+    update(auth: UnderslightAuth): Promise<User>;
 }
